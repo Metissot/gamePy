@@ -1,16 +1,17 @@
 # -*- coding: utf-8 -*-
 
-import pygame
+import pygame, sys
 import player
-
+from pygame.locals import *
+fondoBg = pygame.image.load('mapa.png')
 pygame.init()
 
 # Definimos algunas variables que usaremos en nuestro código
-
-ancho_ventana = 1024
-alto_ventana = 720
+colorBg = pygame.Color('white')
+ancho_ventana = 636
+alto_ventana = 470
 screen = pygame.display.set_mode((ancho_ventana, alto_ventana))
-pygame.display.set_caption("ARGENTUM ONLINE")
+pygame.display.set_caption("MiJueguito")
 clock = pygame.time.Clock()
 
 player = player.PJ((ancho_ventana/2, alto_ventana/2))
@@ -23,7 +24,8 @@ while game_over == False:
             game_over = True
 
     player.handle_event(event)
-    screen.fill(pygame.Color('black'))
+    screen.fill(colorBg)
+    screen.blit(fondoBg,(0,0))
     screen.blit(player.image, player.rect)
 
     pygame.display.flip()

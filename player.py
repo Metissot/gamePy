@@ -5,15 +5,15 @@ import pygame
 class PJ(pygame.sprite.Sprite):
     def __init__(self, position):
         self.sheet = pygame.image.load('PJ.png')
-        self.sheet.set_clip(pygame.Rect(0, 140, 60, 60))
+        self.sheet.set_clip(pygame.Rect(14, 640, 30, 60))
         self.image = self.sheet.subsurface(self.sheet.get_clip())
         self.rect = self.image.get_rect()
         self.rect.topleft = position
         self.frame = 0
-        self.left_states = {0: (20, 580, 20, 60), 1: (80, 580, 20, 60), 2: (147, 580, 20, 60), 3: (212, 580, 20, 60), 4: (276, 580, 20, 60), 5: (338, 580, 20, 60), 6: (405, 580, 20, 60), 7: (471, 580, 20, 60), 8: (535, 580, 20, 60)}
-        self.right_states = {0: (19, 705, 25, 60), 1: (83, 705, 25, 60), 2: (147, 705, 25, 60), 3: (209, 705, 25, 60), 4: (272, 705, 25, 60), 5: (334, 705, 25, 60), 6: (400, 705, 25, 60), 7: (465, 705, 25, 60), 8: (530, 705, 25, 60)}
-        self.up_states = {0: (0, 45, 25, 45), 1: (25, 45, 25, 45), 2: (50, 45, 25, 45)}
-        self.down_states = {0: (0, 0, 25, 45), 1: (25, 0, 25,45 ), 2: (50, 0, 25, 45)}
+        self.left_states = {0: (20, 576, 30, 50), 1: (81, 576, 30, 50), 2: (147, 576, 30, 60), 3: (211, 576, 30, 60), 4: (275, 576, 30, 60), 5: (337, 576, 30, 60), 6: (404, 576, 30, 60), 7: (467, 576, 30, 60), 8: (531, 576, 30, 60)}
+        self.right_states = {0: (14, 705, 30, 60), 1: (83, 705, 30, 60), 2: (147, 705, 30, 60), 3: (209, 705, 30, 60), 4: (272, 705, 30, 60), 5: (334, 705, 30, 60), 6: (400, 705, 30, 60), 7: (465, 705, 30, 60), 8: (530, 705, 30, 60)}
+        self.up_states = {0: (14, 512, 30, 60), 1: (78, 512, 30, 60), 2: (142, 512, 30, 60), 3: (206, 512, 30, 60), 4: (270, 512, 30, 60), 5: (334, 512, 30, 60), 6: (398, 512, 30, 60), 7: (463, 512, 30, 60), 8: (526, 512, 30, 60)}
+        self.down_states = {0: (14, 640, 30, 60), 1: (78, 640, 30, 60), 2: (142, 640, 30, 60), 3: (206, 640, 30, 60), 4: (270, 640, 30, 60), 5: (334, 640, 30, 60), 6: (398, 640, 30, 60), 7: (463, 640, 30, 60), 8: (526, 640, 30, 60)}
 
     def get_frame(self, frame_set):
         self.frame += 1
@@ -31,10 +31,10 @@ class PJ(pygame.sprite.Sprite):
     def update(self, direction):
         if direction == 'left':
             self.clip(self.left_states)
-            self.rect.x -= 0
+            self.rect.x -= 5
         if direction == 'right':
             self.clip(self.right_states)
-            self.rect.x += 0
+            self.rect.x += 5
         if direction == 'up':
             self.clip(self.up_states)
             self.rect.y -= 5
